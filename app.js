@@ -2,10 +2,13 @@ const grid = document.querySelector('.grid');
 const gridItems = [...document.querySelectorAll('.grid-item')];
 const gridRows = [...document.querySelectorAll('.row')];
 const images = [...document.querySelectorAll('.img')];
+const heading = document.querySelector('.heading');
 
 images.forEach((img, idx) => {
     img.style.backgroundImage = `url(./images/${idx + 1}.jpeg)`
-})
+});
+
+
 
 gridItems.forEach((item, idx) => {
     item.addEventListener('click', (e) => {
@@ -56,4 +59,12 @@ function setActive(idxArr){
             gridItems[i].classList.remove('expand');
         }
     }
-}
+};
+
+setTimeout(() => {
+    heading.classList.add('show');
+}, 500);
+
+setTimeout(() => {
+    grid.style.opacity = 1
+}, 1000);

@@ -1,3 +1,13 @@
+:root {
+  --bg-color: #131313;
+  --text-color: #ffffff;
+}
+
+/* :root {
+  --bg-color: #ffffff;
+  --text-color: #131313;
+} */
+
 @font-face {
   font-family: "ivar";
   src: url(./IvarDisplayCondensed-Light.woff2) format("woff2");
@@ -10,8 +20,8 @@
 
 html,
 body {
-  background-color: #131313;
-  color: azure;
+  background-color: var(--bg-color);
+  color: var(--text-color);
 }
 
 * {
@@ -24,25 +34,48 @@ body {
   position: absolute;
   width: 100%;
   height: 25%;
-  padding: 0.2rem;
+  padding: 20px;
 }
 
-.header h1 {
+.heading {
+  line-height: 70px;
   position: absolute;
-  bottom: 0;
+  bottom: 20px;
+  overflow: hidden;
+  transform: rotate(5deg);
+  /* background-color: red; */
+  transition: 0.5s;
+}
+
+.heading h1 {
   font-family: "ivar";
+  /* font-family: "Poppins", sans-serif; */
   font-weight: 300;
   font-size: 70px;
+
+  transform: translateY(100%) rotate(5deg);
+  transition: 0.5s;
+}
+
+.heading.show {
+  transform: rotate(0deg);
+}
+
+.heading.show h1 {
+  transform: translateY(0%) rotate(0deg);
 }
 
 h2 {
   font-family: "ivar";
+  letter-spacing: 1px;
+  /* font-family: "Poppins", sans-serif; */
   font-size: 18px;
   text-transform: uppercase;
 }
 
 h5 {
   font-family: "NeueMontreal";
+  /* font-family: "Poppins", sans-serif; */
   font-size: 12px;
   position: absolute;
   bottom: 0;
@@ -50,6 +83,7 @@ h5 {
 
 span {
   font-family: "NeueMontreal";
+  /* font-family: "Poppins", sans-serif; */
   font-size: 10px;
 }
 
@@ -60,6 +94,8 @@ span {
   height: 75%;
   display: flex;
   flex-direction: column;
+  opacity: 0;
+  transition: 1s;
 }
 
 .row {
@@ -71,14 +107,15 @@ span {
 .grid-item {
   position: relative;
   height: 100%;
-  border-top: 1px solid rgb(255, 255, 255);
-  border-right: 1px solid rgb(255, 255, 255);
+  border-top: 1px solid var(--text-color);
+  border-right: 1px solid var(--text-color);
   cursor: pointer;
   transition: 0.3s;
   flex: 1;
   will-change: flex;
   display: flex;
-  padding: 0.5rem;
+  padding: 10px;
+  overflow: hidden;
 }
 
 .active {
@@ -100,6 +137,7 @@ span {
 
 .grid-item > .title {
   flex: 2;
+  overflow: hidden;
 }
 
 .grid-item > .img-wrap {
@@ -123,6 +161,7 @@ span {
   width: 100%;
   height: 100%;
   background-size: cover;
+  background-position: center;
   transform: scale(1.5);
   opacity: 0;
   transition: 0.9s;
