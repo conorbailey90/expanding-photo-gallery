@@ -43,13 +43,11 @@ body {
   bottom: 20px;
   overflow: hidden;
   transform: rotate(5deg);
-  /* background-color: red; */
   transition: 0.5s;
 }
 
 .heading h1 {
   font-family: "ivar";
-  /* font-family: "Poppins", sans-serif; */
   font-weight: 300;
   font-size: 70px;
 
@@ -68,14 +66,12 @@ body {
 h2 {
   font-family: "ivar";
   letter-spacing: 1px;
-  /* font-family: "Poppins", sans-serif; */
   font-size: 18px;
   text-transform: uppercase;
 }
 
 h5 {
   font-family: "NeueMontreal";
-  /* font-family: "Poppins", sans-serif; */
   font-size: 12px;
   position: absolute;
   bottom: 0;
@@ -83,7 +79,6 @@ h5 {
 
 span {
   font-family: "NeueMontreal";
-  /* font-family: "Poppins", sans-serif; */
   font-size: 10px;
 }
 
@@ -135,12 +130,12 @@ span {
   pointer-events: none;
 }
 
-.grid-item > .title {
+.title {
   flex: 2;
   overflow: hidden;
 }
 
-.grid-item > .img-wrap {
+.img-wrap {
   flex: 0;
   transition: 0.3s;
   overflow: hidden;
@@ -164,7 +159,6 @@ span {
   background-position: center;
   transform: scale(1.5);
   opacity: 0;
-  transition: 0.9s;
 }
 
 .grid-item.active > .img-wrap > .img {
@@ -172,4 +166,43 @@ span {
   filter: blur(0px);
   transition: 0.9s;
   opacity: 1;
+  transition: 1s;
+}
+
+@media screen and (max-width: 600px) {
+  .header {
+    height: 15%;
+    padding: 20px;
+  }
+
+  .grid {
+    top: 15%;
+    height: 85%;
+  }
+
+  .row {
+    flex-direction: column;
+  }
+
+  .grid-item {
+    border-right: none;
+  }
+
+  .heading h1 {
+    font-size: 50px;
+  }
+
+  h2 {
+    font-family: "ivar";
+    letter-spacing: 1px;
+    font-size: 12px;
+    text-transform: uppercase;
+  }
+
+  h5 {
+    font-family: "NeueMontreal";
+    font-size: 8px;
+    position: absolute;
+    bottom: 0;
+  }
 }

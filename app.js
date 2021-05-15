@@ -8,8 +8,6 @@ images.forEach((img, idx) => {
     img.style.backgroundImage = `url(./images/${idx + 1}.jpeg)`
 });
 
-
-
 gridItems.forEach((item, idx) => {
     item.addEventListener('click', (e) => {
         let isActive = e.target.classList.contains('active')
@@ -29,25 +27,31 @@ gridItems.forEach((item, idx) => {
 
         gridItems[idx].classList.add('active');
 
-        if(idx == 0 || idx == 3){
-            setActive([0, 3]);
+        if(window.innerWidth > 600){
+
+            if(idx == 0 || idx == 3){
+                setActive([0, 3]);
+            }
+    
+            if(idx == 1 || idx == 4){
+                setActive([1, 4]);
+            }
+    
+            if(idx == 2 || idx == 5){
+                setActive([2, 5]);
+            }
+    
+            if(idx <=2){
+                gridRows[0].style.height = '70%'
+                gridRows[1].style.height = '30%'
+            }else{
+                gridRows[0].style.height = '30%'
+                gridRows[1].style.height = '70%'
+            }
+
         }
 
-        if(idx == 1 || idx == 4){
-            setActive([1, 4]);
-        }
-
-        if(idx == 2 || idx == 5){
-            setActive([2, 5]);
-        }
-
-        if(idx <=2){
-            gridRows[0].style.height = '70%'
-            gridRows[1].style.height = '30%'
-        }else{
-            gridRows[0].style.height = '30%'
-            gridRows[1].style.height = '70%'
-        }
+      
     })
 })
 
@@ -60,6 +64,15 @@ function setActive(idxArr){
         }
     }
 };
+
+window.addEventListener('resize', () => {
+    for(let i = 0; i < gridItems.length; i++){
+        gridItems[i].classList.remove('active');
+        gridItems[i].classList.remove('expand');
+        gridRows[0].style.height = '50%'
+        gridRows[1].style.height = '50%'
+    }
+})
 
 setTimeout(() => {
     heading.classList.add('show');
